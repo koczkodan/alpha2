@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<th:block th:insert="layout-template"></th:block>
+
+<p>Edytuj przeprowadzającego wizytę</p>
+<form th:action="@{${#httpServletRequest.requestURI}}" th:object="${employeeDTO}" method="post">
+    <input type="hidden" th:field="*{Id}" />
+    <input type="text" th:field="*{firstName}" placeholder="Wprowadź imię (pseudonim)"/>
+    <p class="text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
+    <br>
+    <input type="text" th:field="*{lastName}" placeholder="Wprowadź nazwisko" />
+    <p class="text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
+    <br>
+    <input type="submit" value="Wyślij">
+    <br>
+</form>
+
+</body>
+</html>

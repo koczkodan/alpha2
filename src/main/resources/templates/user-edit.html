@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<th:block th:insert="layout-template"></th:block>
+
+<p>Dodaj opinie</p>
+<form action="#" th:action="@{'/admin/users/'+${id}+'/edit'}" th:object="${user}" method="put">
+    <div class="form-group">
+        <div class="col-sm-12">
+            <label for="title">Tresc</label>
+            <textarea class="form-control" id="title" placeholder="Tresc" th:field="*{}"></textarea>
+            <input type="submit" class="btn btn-primary" value="Wyślij">
+        </div>
+        <p class="text-danger" th:if="${#fields.hasErrors('body')}" th:errors="*{body}"></p>
+    </div>
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<th:block th:insert="layout-template"></th:block>
+<div>
+    <table class="table table-striped">
+        <thead>
+        <th>E-mail</th>
+        <th>Rola użytkownika</th>
+        <th>Status konta</th>
+        </thead>
+        <tbody>
+        <tr th:each="user: ${users}">
+            <td  th:text="${user.email}"></td>
+            <td  th:text="${user.role}"></td>
+            <td th:text="${user.enabled}"></td>
+            <td>
+                <a style="color: #6fc6ff;" th:href="@{'/admin/users/' + ${user.userId} + '/deactivate'}">
+                    <div class="form-check">
+                        <input type="submit" value="Deaktywuj użytkownika" class="btn btn-primary">
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{'/admin/users/' + ${user.userId} + '/edit'}">
+                    <div class="form-check">
+                        <input type="submit" value="Edytuj rolę" class="btn btn-primary">
+                    </div>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

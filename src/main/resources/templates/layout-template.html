@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <title>Alpha2</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#004bb9">
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <link rel="stylesheet"
+          href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+</head>
+<body>
+
+<script>
+    function refreshPage(){
+        window.location.reload();
+    }
+</script>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" type="submit" onClick="refreshPage()">Alpha2</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li th:if ="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'',''ROLE_USER'')')}">
+                <a th:href="@{/login}"><span class="glyphicon glyphicon-home"></span> Home</a>
+            </li>
+            <li>
+                <a th:href="@{/about}"><span class="glyphicon glyphicon-info-sign"></span> About</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li th:if ="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'',''ROLE_USER'')')}">
+                <a th:href="@{/logout}"><span class="glyphicon glyphicon-off"></span> Logout</a>
+            </li>
+            <li th:if ="${not #authorization.expression('hasAnyRole(''ROLE_ADMIN'',''ROLE_USER'')')}">
+                <a <a th:href="@{/login}"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+</body>
+</html>

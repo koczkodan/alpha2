@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<th:block th:insert="layout-template"></th:block>
+
+<p>Dodaj pracownika</p>
+<form th:action="@{/admin/employee/new}" th:object="${employee}" method="post">
+    <input type="hidden" th:field="*{employeeId}" />
+    <input type="text" th:field="*{firstName}" placeholder="Imie"/>
+    <p class="text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
+    <br>
+    <input type="text" th:field="*{lastName}" placeholder="Nazwisko" />
+    <p class="text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
+    <br>
+    <input type="text" th:field="*{jobDescription}" placeholder="Nazwisko" />
+    <p class="text-danger" th:if="${#fields.hasErrors('jobDescription')}" th:errors="*{jobDescription}"></p>
+    <br>
+    <div>
+        <p>aktywuj pracownika</p>
+        <input type="checkbox" th:field="*{active}" placeholder="Aktywny pracownik" />
+        <p class="text-danger" th:if="${#fields.hasErrors('active')}" th:errors="*{active}"></p>
+    </div>
+    <input type="submit" value="Wyślij">
+    <br>
+</form>
+</body>
+
+</html>

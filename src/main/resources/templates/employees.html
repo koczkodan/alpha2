@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<th:block th:insert="layout-template"></th:block>
+
+<table class="table table-striped">
+    <thead >
+    <th>Imię</th>
+    <th>Nazwisko</th>
+    <th>Stanowisko</th>
+    </thead>
+    <tbody>
+    <tr th:each="employee: ${employees}">
+        <td  th:text="${employee.firstName}"></td>
+        <td  th:text="${employee.lastName}"></td>
+        <td  th:text="${employee.jobDescription}"></td>
+        <td  th:if ="${#authorization.expression('hasRole(''ROLE_USER'')')}">
+            <a style="color: #6fc6ff;" th:href="@{'/user/employee/' + ${employee.employeeId} + '/new-opinion'}">Oceń</a>
+        </td>
+        <td  th:if ="${#authorization.expression('hasRole(''ROLE_USER'')')}">
+            <a style="color: #6fc6ff;" th:href="@{'/user/employee/' + ${employee.employeeId} + '/opinions'}">Opinie</a>
+        </td>
+        <td  th:if ="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+            <a th:href="@{'/admin/pdfreport/'+${employee.employeeId}}" target="_blank">
+                <div class="form-check">
+                    <input type="submit" value="PDF" class="btn btn-primary">
+                </div>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

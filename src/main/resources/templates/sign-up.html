@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<th:block th:insert="layout-template"></th:block>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <form action="#" class="center" th:action="@{/sign-up}" th:object="${userDTO}" method="post">
+                <div class="form-group">
+                    <label for="email">Podaj email</label>
+                    <input id="email" type="email" class="form-control" th:field="*{email}" placeholder="Podaj e-mail"/>
+                </div>
+                <!--
+                <p class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                -->
+                <div class="form-group">
+                    <label for="password">Podaj haslo</label>
+                    <input id="password" type="password" class="form-control" th:field="*{password}" placeholder="Podaj haslo" />
+                </div>
+                <!--
+                <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+                -->
+                <div class="form-group">
+                    <label for="repassword">Powtorz haslo</label>
+                    <input id="repassword" type="password" class="form-control" th:field="*{repeatPassword}" placeholder="Podaj haslo" />
+                </div>
+                <ul th:if="${#fields.hasErrors('*')}">
+                    <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+                </ul>
+                <div class="form-check">
+                    <input type="submit" value="Wyślij" class="btn btn-primary">
+                </div>
+        </div>
+    </div>
+</div>
+
+<script></script>
+
+</body>
+</html>

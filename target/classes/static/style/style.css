@@ -1,0 +1,210 @@
+body {
+    font-family: Lato, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+    background-color: black;
+}
+
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/*Global*/
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+a {
+    color: white;
+}
+
+/*Header*/
+
+header {
+    background-color: black;
+    color: white;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #004bb9 4px solid;
+}
+
+header h1 {
+    transition: 300ms;
+}
+
+header h1:hover {
+    color: #004bb9;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+
+header li a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header li {
+    float: left;
+    display: inline;
+    padding: 0 20px 0 20px
+}
+
+header #branding {
+    float: left;
+}
+
+header #branding h1 {
+    margin: 0;
+}
+
+header #branding a {
+    color: white;
+    text-decoration: none;
+}
+
+header #branding a:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+header #branding a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+header #branding h1 span {
+    color: #004bb9;
+    transition: 300ms;
+}
+
+header #branding h1:hover span {
+    color: white;
+    transition: 300ms;
+}
+
+header nav {
+    float: right;
+    margin-top: 10px;
+}
+
+header .highlight, header .current a {
+    color: #004bb9;
+}
+
+header a {
+    transition: 300ms;
+}
+
+header a:hover {
+    color: #004bb9;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+/*Showcase*/
+
+#showcase {
+    min-height: 345px;
+    background: url("/images/showcase_bg.png") no-repeat;
+    text-align: left;
+    color: white;
+}
+
+#showcase h1 {
+    margin-top: 10px;
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+#showcase p {
+    font-size: 20px;
+}
+
+/*navigation*/
+
+#navigation {
+    padding: 25px;
+    margin: 0;
+    color: white;
+    background: black;
+    font-size: 20px;
+}
+
+#navigation h1 {
+    text-align: center;
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+}
+
+#navigation nav {
+    text-align: center;
+    margin-top: 5px;
+}
+
+#navigation nav ul {
+    display: inline-block;
+    text-align: center;
+}
+
+#navigation nav ul li {
+    margin: 0 20px 0 20px;
+}
+
+#navigation a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 300ms;
+}
+
+#navigation a:hover {
+    color: #004bb9;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+
+#navigation li {
+    float: left;
+    display: inline;
+    padding: 0 20px 0 20px
+}
+
+/*content*/
+
+#content {
+    padding: 15px;
+    margin: 0;
+    color: white;
+    background: black;
+    font-size: 20px;
+}
+
+/*calendar*/
+#calendar {
+    max-width: 900px;
+    margin: 20px auto 0 auto;
+}
+
+/*login*/
+.login {
+    text-align: center;
+    font-size: 20px;
+}
+
+.login input {
+    display: block;
+    margin: 10px auto;
+}

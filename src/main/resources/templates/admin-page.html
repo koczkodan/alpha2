@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<th:block th:insert="layout-template"></th:block>
+
+
+<style>
+    .btn-group button {
+        background-color: #4CAF50; /* Green background */
+        border: 3px solid #000000; /* Green border */
+        color: white; /* White text */
+        padding: 10px 24px; /* Some padding */
+        cursor: pointer; /* Pointer/hand icon */
+        float: left; /* Float the buttons side by side */
+    }
+
+    /* Clear floats (clearfix hack) */
+    .btn-group:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .btn-group button:not(:last-child) {
+        border-right: none; /* Prevent double borders */
+    }
+
+    /* Add a background color on hover */
+    .btn-group button:hover {
+        background-color: #3e8e41;
+    }
+</style>
+<body>
+
+<script>
+    function myFunction() {
+        confirm("Are you sure?");
+    }
+</script>
+
+<h1>Panel administratora</h1>
+
+<p>Two buttons in a group:</p>
+<div class="center-block">
+    <div class="btn-group" style="width:100%">
+        <a th:href="@{/admin/users}">
+            <button class="glyphicon glyphicon-user" style="width:50%"> Użytkownicy</button>
+        </a>
+        <a th:href="@{/sign-up}">
+            <button class="glyphicon glyphicon-registration-mark" style="width:50%"> Zarejestruj użytkownika</button>
+        </a>
+
+    </div>
+</div>
+
+<p>Three buttons in a group:</p>
+<div class="btn-group" style="width:100%">
+    <button style="width:33.3%" onclick="myFunction()">Apple</button>
+    <a th:href="@{/admin/employee}">
+        <button style="width:33.3%" type="button" class="glyphicon glyphicon-briefcase"> Pracownicy</button>
+    </a>
+    <button style="width:33.3%">Sony</button>
+</div>
+
+<p>Four buttons in a group:</p>
+<div class="btn-group" style="width:100%">
+    <button style="width:25%">Apple</button>
+    <button style="width:25%">Samsung</button>
+    <button style="width:25%">Sony</button>
+    <button style="width:25%">HTC</button>
+</div>
+
+
+
+</body>
+</html>
