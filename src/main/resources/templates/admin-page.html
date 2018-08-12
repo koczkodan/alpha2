@@ -31,6 +31,12 @@
     .btn-group button:hover {
         background-color: #3e8e41;
     }
+    .padding{
+        padding: 0px 40% 100px;
+    }
+    .margin{
+        margin: 0px 20% 0% 20%;
+    }
 </style>
 <body>
 
@@ -39,31 +45,32 @@
         confirm("Are you sure?");
     }
 </script>
+<div class="">
+    <h1>Panel administratora</h1>
 
-<h1>Panel administratora</h1>
+    <p>Zarządzaj użytkownikami</p>
+    <div class="center-block">
+        <div class="btn-group" style="width:100%">
+            <a th:href="@{/admin/users}">
+                <button class="glyphicon glyphicon-user" style="width:50%"> Użytkownicy</button>
+            </a>
+            <a th:href="@{/sign-up}">
+                <button class="glyphicon glyphicon-registration-mark" style="width:50%"> Zarejestruj użytkownika</button>
+            </a>
 
-<p>Two buttons in a group:</p>
-<div class="center-block">
+        </div>
+    </div>
+
+    <p>Zarządzaj pracownikami</p>
     <div class="btn-group" style="width:100%">
-        <a th:href="@{/admin/users}">
-            <button class="glyphicon glyphicon-user" style="width:50%"> Użytkownicy</button>
+        <a th:href="@{/admin/employee}">
+            <button style="width:50%" type="button" class="glyphicon glyphicon-briefcase"> Pracownicy</button>
         </a>
-        <a th:href="@{/sign-up}">
-            <button class="glyphicon glyphicon-registration-mark" style="width:50%"> Zarejestruj użytkownika</button>
-        </a>
-
+        <button style="width:50%" onclick="myFunction()">123</button>
     </div>
 </div>
 
-<p>Three buttons in a group:</p>
-<div class="btn-group" style="width:100%">
-    <button style="width:33.3%" onclick="myFunction()">Apple</button>
-    <a th:href="@{/admin/employee}">
-        <button style="width:33.3%" type="button" class="glyphicon glyphicon-briefcase"> Pracownicy</button>
-    </a>
-    <button style="width:33.3%">Sony</button>
-</div>
-
+<!--
 <p>Four buttons in a group:</p>
 <div class="btn-group" style="width:100%">
     <button style="width:25%">Apple</button>
@@ -71,6 +78,7 @@
     <button style="width:25%">Sony</button>
     <button style="width:25%">HTC</button>
 </div>
+-->
 
 
 

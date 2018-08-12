@@ -38,7 +38,7 @@
                 <a th:href="@{/logout}"><span class="glyphicon glyphicon-off"></span> Logout</a>
             </li>
             <li th:if ="${not #authorization.expression('hasAnyRole(''ROLE_ADMIN'',''ROLE_USER'')')}">
-                <a <a th:href="@{/login}"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                <a th:href="@{/login}"><span class="glyphicon glyphicon-log-in"></span> Login</a>
             </li>
         </ul>
     </div>
