@@ -10,7 +10,9 @@ import java.util.List;
 public class Employee implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "employee_seq_gen")
+
+    @SequenceGenerator(name = "employee_seq_gen", sequenceName = "employee_id_seq")
     @Column(name = "employee_id")
     private Long employeeId;
     @Column(name = "first_name")
@@ -31,6 +33,7 @@ public class Employee implements Serializable {
     @JoinColumn(name = "user_id")
     private User uzytkownik;
 */
+
     public Long getEmployeeId() {
         return employeeId;
     }

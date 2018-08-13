@@ -1,9 +1,8 @@
 com\siseth\spring\alpha2\service\EmployeeService.class
-com\siseth\spring\alpha2\service\OpinionService.class
-com\siseth\spring\alpha2\model\Employee.class
-com\siseth\spring\alpha2\WebSecurityConfig.class
 com\siseth\spring\alpha2\model\Opinion.class
 com\siseth\spring\alpha2\repository\OpinionRepository.class
+com\siseth\spring\alpha2\model\Employee.class
 com\siseth\spring\alpha2\CinemaApplication.class
-com\siseth\spring\alpha2\controller\EmployeeController.class
 com\siseth\spring\alpha2\repository\EmployeeRepository.class
+com\siseth\spring\alpha2\service\OpinionService.class
+com\siseth\spring\alpha2\controller\EmployeeController.class
