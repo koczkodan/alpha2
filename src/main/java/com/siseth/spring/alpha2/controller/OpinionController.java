@@ -54,8 +54,11 @@ public class OpinionController {
             newOpinion.setEmployee(employee.get());
         }
         opinionService.save(newOpinion);
+        user.get().getListOfEmployees().add(employee.get());
+        userService.save(user.get());
         return "redirect:/user";
     }
+
 
     @GetMapping("admin/employee/{id}/opinions")
     public String getEmployeeOpinions(@PathVariable Long id, Model model){

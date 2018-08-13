@@ -1,6 +1,8 @@
 package com.siseth.spring.alpha2.service;
 
+import com.siseth.spring.alpha2.model.Employee;
 import com.siseth.spring.alpha2.model.User;
+import com.siseth.spring.alpha2.repository.EmployeeRepository;
 import com.siseth.spring.alpha2.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,6 +20,8 @@ public class UserService {
     private UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private EmployeeRepository employeeRepository;
 
     public Optional<User> findByEmail(String email){
         return this.userRepository.findByEmail(email);
@@ -42,6 +46,14 @@ public class UserService {
     public void save(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
+    }
+
+    public List<Employee> getEmoployeesById(Long id){
+       Optional<User> user = userRepository.findById(id);
+       List<Employee> employees_1 = user.get().getListOfEmployees();
+       List<Employee> employees_2 = employeeRepository.getAllByActive(true);
+       employees_2.removeAll(employees_1);
+       return employees_2;
     }
 
 }

@@ -10,6 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "uzytkownik")
+//@SequenceGenerator(schema = "public", name = "id_generator", sequenceName = "uzytkownik_user_id_seq", allocationSize = 1)
 public class User implements Serializable {
 
     @Id
@@ -27,31 +28,13 @@ public class User implements Serializable {
     private boolean enabled = true;
 //DOTO ZMIENIC TABELKI
 
-    /*
+
     @ManyToMany
     @JoinTable(name = "uzytkownik_employee", joinColumns = {
             @JoinColumn(name ="user_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "employee_id", nullable = false, updatable = false)})
     private List<Employee> listOfEmployees;
-    */
 
-    public User(String email, String password, String role,boolean enabled) {
-        this.email = email;
-        this.password = password;
-        this.role = role;
-        this.enabled =enabled;
-    }
-
-    public User() {
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
 
     public Long getUserId() {
         return userId;
@@ -85,4 +68,31 @@ public class User implements Serializable {
         this.role = role;
     }
 
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public User() {
+    }
+
+    public User(Long userId, @Email String email, @Size(max = 64) String password, String role, boolean enabled, List<Employee> listOfEmployees) {
+        this.userId = userId;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.enabled = enabled;
+        this.listOfEmployees = listOfEmployees;
+    }
+
+    public List<Employee> getListOfEmployees() {
+        return listOfEmployees;
+    }
+
+    public void setListOfEmployees(List<Employee> listOfEmployees) {
+        this.listOfEmployees = listOfEmployees;
+    }
 }

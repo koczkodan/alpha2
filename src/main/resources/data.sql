@@ -21,3 +21,7 @@ insert into opinion values(7,true,'Póki Kiedy winem konno gdzie uwagi Białopio
 ,current_date, 3);
 insert into opinion values(8,true,'Napełniając bezprzytomnie przeszłości kurz inni maja zawziętości gospodarskich posiadłość laty Dzik. Ciotka Jerzym Trudno Polski pijani kręgi cenić. Sianie podniosłem prawie Obmoczyłem dowcip pantalonach Weszli musieliśmy opieki czapla widzę Kazał. Nadzwyczajnie farb Odsłaniając bór Ogon żyt balu bawi razy Bogu Napełniając. Odpowiedział pęki Podkomorzanki zamku śnie Zazdroszczono biesiadników imion wieś Dobra ogary cichu. Rzeczpospolita najstraszniéj pode nieszczęście wyciągniętą sejm usty Cara przyciągnąć zacietrzewiony bóg. '
 ,current_date, 4);
+
+--insert into uzytkownik_employee values(2,1);
+--insert into uzytkownik_employee values(2,2);
+--insert into uzytkownik_employee values(3,2);

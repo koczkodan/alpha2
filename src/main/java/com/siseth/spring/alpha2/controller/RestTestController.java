@@ -1,5 +1,6 @@
 package com.siseth.spring.alpha2.controller;
 
+import com.siseth.spring.alpha2.model.Employee;
 import com.siseth.spring.alpha2.model.Opinion;
 import com.siseth.spring.alpha2.model.User;
 import com.siseth.spring.alpha2.repository.UserRepository;
@@ -15,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.ByteArrayInputStream;
@@ -51,6 +53,7 @@ public class RestTestController {
                 i.remove();
             }
         }
+
         ByteArrayInputStream bis = GeneratePdfReport.opinionsReport(opinions,id,employeeService);
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Disposition","inline; filename=opinionsreport_"+
@@ -62,5 +65,20 @@ public class RestTestController {
                 .headers(headers)
                 .contentType(MediaType.APPLICATION_PDF)
                 .body(new InputStreamResource(bis));
+    }
+
+   @GetMapping(value ="/admin/12321")
+    public void addUser(){
+        Optional<User> user = userService.findById(new Long(2));
+        Optional<Employee> employee = employeeService.findById(new Long(2));
+        user.get().getListOfEmployees().add(employee.get());
+        userService.save(user.get());
+    }
+
+
+    @GetMapping(value ="/users")
+    public Employee viewUsersEmployees(){
+        Optional<User> user = userService.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
+        return user.get().getListOfEmployees().get(0);
     }
 }

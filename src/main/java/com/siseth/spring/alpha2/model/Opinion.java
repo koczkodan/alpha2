@@ -7,6 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "opinion")
+@SequenceGenerator(schema = "public", name = "id_generator", sequenceName = "opinion_opinion_id_seq", allocationSize = 1)
 public class Opinion implements Serializable {
 
     @Id

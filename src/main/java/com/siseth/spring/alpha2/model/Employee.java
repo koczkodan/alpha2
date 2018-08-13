@@ -7,12 +7,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "employee")
+//@SequenceGenerator(schema = "public", name = "id_generator", sequenceName = "employee_employee_id_seq", allocationSize = 1)
 public class Employee implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "employee_seq_gen")
-
-    @SequenceGenerator(name = "employee_seq_gen", sequenceName = "employee_id_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employee_id")
     private Long employeeId;
     @Column(name = "first_name")
@@ -28,11 +27,9 @@ public class Employee implements Serializable {
     List<Opinion> listOfOpinions;
 
 
-/*
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
-    private User uzytkownik;
-*/
+    @ManyToMany(mappedBy = "listOfEmployees")
+    List<User> listOfUsers;
+
 
     public Long getEmployeeId() {
         return employeeId;
@@ -74,6 +71,14 @@ public class Employee implements Serializable {
         this.active = active;
     }
 
+    public List<User> getListOfUsers() {
+        return listOfUsers;
+    }
+
+    public void setListOfUsers(List<User> listOfUsers) {
+        this.listOfUsers = listOfUsers;
+    }
+
     public List<Opinion> getListOfOpinions() {
         return listOfOpinions;
     }
@@ -83,16 +88,18 @@ public class Employee implements Serializable {
     }
 
 
-    public Employee() {
 
+    public Employee() {
     }
 
-    public Employee(String firstName, String lastName, String jobDescription, boolean active, List<Opinion> listOfOpinions) {
+    public Employee(Long employeeId, String firstName, String lastName, String jobDescription, boolean active, List<Opinion> listOfOpinions, List<User> listOfUsers) {
+
+        this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.jobDescription = jobDescription;
         this.active = active;
         this.listOfOpinions = listOfOpinions;
-       // this.uzytkownik = uzytkownik;
+        this.listOfUsers = listOfUsers;
     }
 }
